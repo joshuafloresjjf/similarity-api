@@ -1,26 +1,35 @@
-"use client"
+'use client'
 
+import { signIn } from 'next-auth/react'
 import { FC, useState } from 'react'
-import Button from './Button'
+import { Button } from './Button'
+// import { toast } from './toast'
 
-interface SignInButtonProps {
-  
-}
+
+
+interface SignInButtonProps {}
 
 const SignInButton: FC<SignInButtonProps> = ({}) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-
-    const signInWIthGoogle = async()=>{
+  const signInWithGoogle = async () => {
+    try {
       setIsLoading(true)
-
-      
+      await signIn('google')
+    } catch (error) {
+      // toast({
+      //   title: 'Error signing in',
+      //   message: 'Please try again later.',
+      //   type: 'error',
+      // })
     }
+  }
 
-
-  return <Button onClick={signInWithGoogle} isLoading={isLoading}>
-    Sign in
-  </Button>
+  return (
+    <Button onClick={signInWithGoogle} isLoading={isLoading}>
+      Sign in
+    </Button>
+  )
 }
 
 export default SignInButton
