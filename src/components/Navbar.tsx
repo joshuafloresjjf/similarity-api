@@ -34,7 +34,7 @@ const Navbar = async () => {
                   <SignOutButton/>
                 </>
             ) : (
-            <SignInButton/>
+            <SignInButton />
             )}
         </div>
      </div>
