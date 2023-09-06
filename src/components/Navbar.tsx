@@ -2,9 +2,9 @@ import { Sign } from 'crypto'
 import { getServerSession } from 'next-auth'
 import Link from 'next/link'
 import { FC } from 'react'
-import SignOutButton from './ui/SignOutButton'
+import SignOutButton from './SignOutButton'
 import { buttonVariants } from './ui/Button'
-import SignInButton from './ui/SignInButton'
+import SignInButton from './SignInButton'
 
 
 
@@ -17,11 +17,11 @@ const Navbar = async () => {
         </Link>
 
         <div className='md: hidden'>
-            {/* <ThemeToggle/> */}
+            <ThemeToggle/>
         </div>
 
         <div className='hidden md:flex gap-4 '>
-            {/* <ThemeToggle/> */}
+            <ThemeToggle/>
             <Link href='/documentation' className={buttonVariants({variant: 'ghost'})}>
                 Documentation
             </Link>
